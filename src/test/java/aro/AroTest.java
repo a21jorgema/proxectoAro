@@ -17,6 +17,9 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class AroTest {
     
+    /**
+     * Construtor da clase por defecto 
+     **/
     public AroTest() {
     }
     

@@ -7,7 +7,18 @@ package aro;
  */
 public class Aro {
 
+    /**
+     * LIMITERADIO é unha constante que define
+     * o límite inferior para o valor do radio
+     * Ten un valor fixo de 0.0
+     */
     public static final double LIMITERADIO = 0.0;
+
+    /**
+     * MINIMOO é unha constante que define
+     * o mínimo valor que pode ter o radio
+     * Ten un valor fixo de 0.0
+     */
     public static final double MINIMO = LIMITERADIO;
 
     private int coordenadaX;
@@ -56,32 +67,62 @@ public class Aro {
         this.radio = radio < MINIMO ? MINIMO : radio;
     }
 
+    /**
+     * Construtor da clase por defecto 
+     **/
     public Aro() {
     }
 
+    /**
+     * Construtor parametrizado con tres parámetros:
+     * @param valorX: valor da coordenada X do centro do Aro
+     * @param valorY: valor da coordenada Y do centro do Aro
+     * @param valorRadio: valor do radio do Aro
+     */
     public Aro(int valorX, int valorY, double valorRadio) {
         coordenadaX = valorX;
         coordenadaY = valorY;
         setRadio(valorRadio);
     }
 
+    /**
+     * Devolve o diámetro do Aro
+     * @return o valor do diámetro=(radio*2)
+     */
     public double obterDiametro() {
         return getRadio() * 2;
     }
 
+    /**
+     * Calcula a lonxitude do Aro
+     * @return circunferencia do Aro
+     */
     public double obterCircunferencia() {
         return Math.PI * obterDiametro();
     }
 
+    /**
+     * Calcula o área do Aro
+     * @return superficie interna do Aro
+     */
     public double obterSuperficie() {
         return Math.PI * getRadio() * getRadio();
     }
 
+    /**
+     * Devolve unha cadea de texto coas coordenadas do centro do Aro e o seu radio 
+     * @return unha cadea de texto
+     */
     @Override
     public String toString() {
         return "Centro = [" + getCoordenadaX() + "," + getCoordenadaY() + "]; Radio = " + getRadio();
     }
 
+    /**
+     * Despraza as coordenadas do centro do Aro
+     * @param trasladarX
+     * @param trasladarY
+     */
     public void trasladarCentro(int trasladarX, int trasladarY) {
         setCoordenadaX(getCoordenadaX() + trasladarX);
         setCoordenadaY(getCoordenadaY() + trasladarY);
