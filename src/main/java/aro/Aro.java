@@ -2,6 +2,7 @@ package aro;
 
 /**
  * Probas de refactorización en NetBeans coa clase Aro
+ *
  * @author Jorge Magariños
  */
 public class Aro {
@@ -52,7 +53,7 @@ public class Aro {
      * @param radio the radio to set
      */
     public void setRadio(double radio) {
-        this.radio = radio;
+        this.radio = radio < MINIMO ? MINIMO : radio;
     }
 
     public Aro() {
@@ -61,32 +62,7 @@ public class Aro {
     public Aro(int valorX, int valorY, double valorRadio) {
         coordenadaX = valorX;
         coordenadaY = valorY;
-        establecerRadio(valorRadio);
-    }
-
-    public void establecerX(int valorX) {
-        setCoordenadaX(valorX);
-    }
-
-    public int obterX() {
-        return getCoordenadaX();
-    }
-
-    public void establecerY(int valorY) {
-        setCoordenadaY(valorY);
-    }
-
-    public int obterY() {
-        return getCoordenadaY();
-    }
-
-    public void establecerRadio(double valorRadio) {
-
-        setRadio(valorRadio < MINIMO ? MINIMO : valorRadio);
-    }
-
-    public double obterRadio() {
-        return getRadio();
+        setRadio(valorRadio);
     }
 
     public double obterDiametro() {
@@ -106,7 +82,7 @@ public class Aro {
         return "Centro = [" + getCoordenadaX() + "," + getCoordenadaY() + "]; Radio = " + getRadio();
     }
 
-    public void trasladarCentro(int trasladarX, int trasladarY){
+    public void trasladarCentro(int trasladarX, int trasladarY) {
         setCoordenadaX(getCoordenadaX() + trasladarX);
         setCoordenadaY(getCoordenadaY() + trasladarY);
     }
